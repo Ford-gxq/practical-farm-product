@@ -1,0 +1,3 @@
+app:
+  upload:
+    image-root-dir: /data/farm-products/uploads/images

@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; background: #f5f7fb; color: #222; }
+a { color: inherit; text-decoration: none; }
+.page-container { max-width: 1120px; margin: 0 auto; padding: 24px; }
+.card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+.site-header { background: #111827; color: white; padding: 18px 0; }
+.site-header-inner { max-width: 1120px; margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+.site-nav a { margin-left: 18px; opacity: .9; }
+.article-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.article-meta { color: #6b7280; font-size: 14px; margin-bottom: 12px; }
+.article-summary { color: #4b5563; line-height: 1.7; }
+.admin-layout { min-height: 100vh; display: flex; }
+.admin-sidebar { width: 220px; background: #111827; color: white; padding: 20px; }
+.admin-sidebar a { display: block; padding: 12px; border-radius: 8px; margin-bottom: 8px; }
+.admin-sidebar a.router-link-active { background: #374151; }
+.admin-main { flex: 1; padding: 24px; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }

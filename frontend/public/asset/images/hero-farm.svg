@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f7a3a"/><stop offset="1" stop-color="#86b949"/></linearGradient></defs>
+  <rect width="1600" height="520" fill="url(#g)"/>
+  <g opacity="0.22" fill="#fff">
+    <circle cx="210" cy="130" r="80"/><circle cx="380" cy="260" r="110"/><circle cx="640" cy="190" r="95"/><circle cx="910" cy="300" r="130"/><circle cx="1240" cy="170" r="115"/><circle cx="1460" cy="310" r="100"/>
+  </g>
+  <g opacity="0.18" stroke="#fff" stroke-width="16" fill="none">
+    <path d="M0 420 C280 330 450 510 730 390 S1120 280 1600 390"/>
+    <path d="M0 340 C300 250 580 390 830 310 S1260 200 1600 260"/>
+  </g>
+  <text x="110" y="280" fill="#fff" font-size="72" font-family="Arial, sans-serif" font-weight="700">家有良田 · 乡村好物</text>
+  <text x="114" y="340" fill="#eefcf1" font-size="30" font-family="Arial, sans-serif">源头直发 / 产地优选 / 农户直连</text>
+</svg>

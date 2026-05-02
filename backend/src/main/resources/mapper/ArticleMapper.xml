@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.blog.mapper.ArticleMapper">
+    <sql id="articleColumns">
+        a.id, a.category_id, c.name AS category_name, a.title, a.summary, a.cover_image,
+        a.content, a.article_type, a.status, a.view_count, a.deleted, a.published_at, a.created_at, a.updated_at,
+        a.price, a.unit, a.sales_text, a.product_tags, a.farmer_name, a.farmer_phone, a.origin_place, a.recommended
+    </sql>
+
+    <select id="selectPage" resultType="Article">
+        SELECT <include refid="articleColumns"/>
+        FROM blog_article a
+        LEFT JOIN blog_category c ON a.category_id = c.id
+        WHERE a.deleted = 0
+        <if test="categoryId != null">AND a.category_id = #{categoryId}</if>
+        <if test="articleType != null and articleType != ''">AND a.article_type = #{articleType}</if>
+        <if test="status != null">AND a.status = #{status}</if>
+        <if test="keyword != null and keyword != ''">
+            AND (a.title LIKE CONCAT('%', #{keyword}, '%') OR a.summary LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        ORDER BY a.recommended DESC, a.published_at DESC, a.id DESC
+        LIMIT #{pageSize} OFFSET #{offset}
+    </select>
+
+    <select id="countPage" resultType="long">
+        SELECT COUNT(1)
+        FROM blog_article a
+        WHERE a.deleted = 0
+        <if test="categoryId != null">AND a.category_id = #{categoryId}</if>
+        <if test="articleType != null and articleType != ''">AND a.article_type = #{articleType}</if>
+        <if test="status != null">AND a.status = #{status}</if>
+        <if test="keyword != null and keyword != ''">
+            AND (a.title LIKE CONCAT('%', #{keyword}, '%') OR a.summary LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+    </select>
+
+    <select id="selectById" resultType="Article">
+        SELECT <include refid="articleColumns"/>
+        FROM blog_article a
+        LEFT JOIN blog_category c ON a.category_id = c.id
+        WHERE a.id = #{id} AND a.deleted = 0
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO blog_article(category_id, title, summary, cover_image, content, article_type, status, published_at,
+                                 price, unit, sales_text, product_tags, farmer_name, farmer_phone, origin_place, recommended)
+        VALUES (#{categoryId}, #{title}, #{summary}, #{coverImage}, #{content}, #{articleType}, #{status},
+                CASE WHEN #{status} = 1 THEN NOW() ELSE NULL END,
+                #{price}, #{unit}, #{salesText}, #{productTags}, #{farmerName}, #{farmerPhone}, #{originPlace}, #{recommended})
+    </insert>
+
+    <update id="update">
+        UPDATE blog_article
+        SET category_id = #{categoryId},
+            title = #{title},
+            summary = #{summary},
+            cover_image = #{coverImage},
+            content = #{content},
+            article_type = #{articleType},
+            status = #{status},
+            price = #{price},
+            unit = #{unit},
+            sales_text = #{salesText},
+            product_tags = #{productTags},
+            farmer_name = #{farmerName},
+            farmer_phone = #{farmerPhone},
+            origin_place = #{originPlace},
+            recommended = #{recommended},
+            published_at = CASE
+                WHEN #{status} = 1 AND published_at IS NULL THEN NOW()
+                WHEN #{status} = 1 THEN published_at
+                ELSE NULL
+            END
+        WHERE id = #{id} AND deleted = 0
+    </update>
+
+    <update id="softDelete">UPDATE blog_article SET deleted = 1 WHERE id = #{id}</update>
+    <update id="increaseViewCount">UPDATE blog_article SET view_count = view_count + 1 WHERE id = #{id}</update>
+    <select id="countAll" resultType="long">SELECT COUNT(1) FROM blog_article WHERE deleted = 0</select>
+    <select id="countPublished" resultType="long">SELECT COUNT(1) FROM blog_article WHERE deleted = 0 AND status = 1</select>
+</mapper>

@@ -1,0 +1,45 @@
+{
+  "info": {
+    "name": "Practical Blog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "前台-文章列表",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/site/articles?pageNo=1&pageSize=10"
+      }
+    },
+    {
+      "name": "后台-登录",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+        },
+        "url": "http://localhost:8080/api/admin/auth/login"
+      }
+    },
+    {
+      "name": "后台-分类列表",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Token",
+            "value": "{{token}}"
+          }
+        ],
+        "url": "http://localhost:8080/api/admin/categories"
+      }
+    }
+  ]
+}

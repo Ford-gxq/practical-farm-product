@@ -1,0 +1,64 @@
+# =========================
+# Java / Spring Boot
+# =========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# Node / Vue / Vite
+# =========================
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# IDE
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Env / Secret
+# =========================
+.env
+.env.*
+application-local.yml
+application-local.properties
+
+# =========================
+# Upload / Runtime files
+# =========================
+uploads/
+upload/
+temp/
+tmp/
+
+# =========================
+# Database backup
+# =========================
+*.sql.bak
+*.dump
+*.backup

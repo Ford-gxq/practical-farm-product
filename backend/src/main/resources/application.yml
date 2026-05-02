@@ -1,0 +1,27 @@
+server:
+  port: 8088
+
+spring:
+  profiles:
+    active: dev
+
+  application:
+    name: practical-blog-backend
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/practical_farm_product?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 822198gxq!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.example.blog.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+app:
+  auth:
+    password-salt: blog-system-fixed-salt
+    token-prefix: BLOG_TOKEN_
