@@ -123,6 +123,14 @@ http://localhost:5173
 http://localhost:5173/admin/login
 ```
 
+后端登陆界面：
+<img width="2559" height="1431" alt="image" src="https://github.com/user-attachments/assets/5bb7a044-ba0a-4bcb-bccf-7fb5000571d5" />
+
+后端主页面：
+<img width="2538" height="1158" alt="image" src="https://github.com/user-attachments/assets/5efd8471-ca0d-4818-832a-4adde66bcc33" />
+
+
+
 ## 五、重要说明
 
 为了降低改造成本，后端表名和部分类名仍沿用原来的：
