@@ -185,3 +185,8 @@ message_contents
 ```
 
 管理员登录后台后，点击左侧菜单“留言管理”，可以查看小程序用户提交的姓名、联系电话、留言内容、来源、提交时间，并可以标记为“已处理”或填写管理员备注。
+
+## 微信小程序端
+
+<img width="660" height="1283" alt="0342f00525dbf5d8ac22f74223309833" src="https://github.com/user-attachments/assets/18bcfeaf-8b7b-4680-91aa-657783b90561" />
+
