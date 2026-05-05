@@ -17,6 +17,9 @@
 ```text
 新鲜果蔬 | 禽蛋肉奶 | 粮油杂粮 | 特产农产品 | 其他商品
 ```
+## 项目文档说明
+项目目录下的docs目录下有完整的前后端的项目开发文档
+
 
 ## 二、主要功能
 
@@ -112,11 +115,23 @@ npm run dev
 http://localhost:5173
 ```
 
+<img width="2532" height="1359" alt="d1d8f4f09b27e81b8ea247fee17c84e6" src="https://github.com/user-attachments/assets/f9f7567f-7493-404a-82fd-33cd7ec02fbc" />
+
+
+
 后台登录地址：
 
 ```text
 http://localhost:5173/admin/login
 ```
+
+后端登陆界面：
+<img width="2559" height="1431" alt="image" src="https://github.com/user-attachments/assets/5bb7a044-ba0a-4bcb-bccf-7fb5000571d5" />
+
+后端主页面：
+<img width="2538" height="1158" alt="image" src="https://github.com/user-attachments/assets/5efd8471-ca0d-4818-832a-4adde66bcc33" />
+
+
 
 ## 五、重要说明
 
