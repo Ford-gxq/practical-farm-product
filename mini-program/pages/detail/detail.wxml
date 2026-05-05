@@ -1,0 +1,40 @@
+<view class="detail-page safe-bottom" wx:if="{{article}}">
+  <image class="cover" src="{{article.coverImage}}" mode="aspectFill"></image>
+  <view class="detail-card">
+    <view class="type-pill">{{article.articleType === 'story' ? '乡村故事' : '农产品商品'}}</view>
+    <view class="title">{{article.title}}</view>
+    <view class="summary">{{article.summary}}</view>
+
+    <view wx:if="{{article.articleType !== 'story'}}" class="price-box">
+      <view class="big-price">{{article.priceText}}</view>
+      <view class="sale">{{article.salesText || '欢迎咨询采购'}}</view>
+    </view>
+
+    <view class="tag-wrap"><text class="tag" wx:for="{{article.tagsArray}}" wx:for-item="tag" wx:key="*this">{{tag}}</text></view>
+
+    <view class="info-grid card">
+      <view class="info-item"><text>产地/地点</text><strong>{{article.originText}}</strong></view>
+      <view class="info-item"><text>{{article.articleType === 'story' ? '讲述人' : '农户'}}</text><strong>{{article.farmerText}}</strong></view>
+      <view class="info-item"><text>联系电话</text><strong>{{article.phoneText}}</strong></view>
+      <view class="info-item"><text>浏览</text><strong>{{article.viewCount || 0}}</strong></view>
+    </view>
+  </view>
+
+  <view class="container content-container">
+    <view class="section-head">
+      <view>
+        <view class="section-title">{{article.articleType === 'story' ? '故事正文' : '商品详情'}}</view>
+        <view class="section-subtitle">真实内容来自后台发布</view>
+      </view>
+    </view>
+    <view class="content-card card">
+      <view class="paragraph" wx:for="{{contentLines}}" wx:key="*this">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <button class="contact-btn" bindtap="copyPhone">复制电话</button>
+    <button class="phone-btn" bindtap="callPhone">拨打电话</button>
+  </view>
+</view>
+<view class="empty" wx:else>正在加载详情...</view>

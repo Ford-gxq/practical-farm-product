@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/products/products",
+    "pages/detail/detail",
+    "pages/stories/stories",
+    "pages/contact/contact"
+  ],
+  "window": {
+    "navigationBarTitleText": "家有良田",
+    "navigationBarBackgroundColor": "#2f7d32",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6f8ef",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

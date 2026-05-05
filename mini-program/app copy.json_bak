@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/products/products",
+    "pages/detail/detail",
+    "pages/stories/stories",
+    "pages/contact/contact"
+  ],
+  "window": {
+    "navigationBarTitleText": "家有良田",
+    "navigationBarBackgroundColor": "#2f7d32",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6f8ef",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#7a7f73",
+    "selectedColor": "#2f7d32",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/home/home", "text": "首页" },
+      { "pagePath": "pages/products/products", "text": "源头好物" },
+      { "pagePath": "pages/stories/stories", "text": "乡村故事" },
+      { "pagePath": "pages/contact/contact", "text": "联系站长" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,105 @@
+<view class="home-page safe-bottom">
+  <view class="hero">
+    <view class="hero-bg"></view>
+    <view class="hero-content">
+      <view class="brand-row">
+        <view class="brand-logo">农</view>
+        <view>
+          <view class="brand-title">家有良田</view>
+          <view class="brand-subtitle">农户直连 · 新鲜到家</view>
+        </view>
+      </view>
+      <view class="hero-title">把乡村里的好农货展示给更多人</view>
+      <view class="hero-desc">新鲜果蔬、禽蛋肉奶、粮油杂粮、特色农产品，一站式展示与联系采购。</view>
+      <view class="hero-actions">
+        <button class="hero-btn" bindtap="goProducts">查看好物</button>
+        <button class="hero-btn ghost" bindtap="goContact">联系站长</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="container home-container">
+    <view class="quick-card card">
+      <view class="quick-item" bindtap="goProducts" data-type="product">
+        <view class="quick-icon green">🥬</view>
+        <view class="quick-text">源头好物</view>
+        <view class="quick-sub">产地直发</view>
+      </view>
+      <view class="quick-item" bindtap="goRecommended">
+        <view class="quick-icon orange">🌾</view>
+        <view class="quick-text">时令推荐</view>
+        <view class="quick-sub">当季优选</view>
+      </view>
+      <view class="quick-item" bindtap="goStories">
+        <view class="quick-icon blue">🏡</view>
+        <view class="quick-text">乡村故事</view>
+        <view class="quick-sub">看见农人</view>
+      </view>
+    </view>
+
+    <view class="section-head">
+      <view>
+        <view class="section-title">精选分类</view>
+        <view class="section-subtitle">按类别快速查看农产品</view>
+      </view>
+      <view class="more" bindtap="goProducts">全部</view>
+    </view>
+    <scroll-view class="category-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="category-list">
+        <view class="category-pill {{activeCategoryId === item.id ? 'active' : ''}}" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="chooseCategory">
+          <view class="category-name">{{item.name}}</view>
+          <view class="category-desc">查看好物</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="section-head">
+      <view>
+        <view class="section-title">时令推荐</view>
+        <view class="section-subtitle">近期更值得关注的农户好货</view>
+      </view>
+      <view class="more" bindtap="goRecommended">更多</view>
+    </view>
+    <view class="product-grid" wx:if="{{recommended.length > 0}}">
+      <view class="product-card card" wx:for="{{recommended}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+        <image class="product-img" src="{{item.coverImage}}" mode="aspectFill"></image>
+        <view class="product-info">
+          <view class="product-title">{{item.title}}</view>
+          <view class="price-row"><text class="price">{{item.priceText}}</text></view>
+          <view class="tag-row">
+            <text class="tag" wx:for="{{item.tagsArray}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+          </view>
+          <view class="product-meta">{{item.originText}} · 浏览 {{item.viewCount || 0}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="empty card" wx:else>暂无推荐商品，请先在后台发布内容</view>
+
+    <view class="section-head">
+      <view>
+        <view class="section-title">乡村故事</view>
+        <view class="section-subtitle">记录农户、土地和手作的温度</view>
+      </view>
+      <view class="more" bindtap="goStories">更多</view>
+    </view>
+    <view class="story-list">
+      <view class="story-card card" wx:for="{{stories}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+        <image class="story-img" src="{{item.coverImage}}" mode="aspectFill"></image>
+        <view class="story-body">
+          <view class="story-title">{{item.title}}</view>
+          <view class="story-summary">{{item.summary || '走进乡村，看见真实的农人生活。'}}</view>
+          <view class="story-meta">{{item.originText}} · 浏览 {{item.viewCount || 0}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 自定义底部导航：可通过 app.wxss 调整字号、加粗、颜色 -->
+  <view class="custom-tabbar safe-bottom">
+    <view class="custom-tabbar-item active">首页</view>
+    <view class="custom-tabbar-item" bindtap="goProducts">源头好物</view>
+    <view class="custom-tabbar-item" bindtap="goStories">乡村故事</view>
+    <view class="custom-tabbar-item" bindtap="goContact">联系站长</view>
+  </view>
+</view>

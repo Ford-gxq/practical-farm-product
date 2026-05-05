@@ -60,6 +60,20 @@ CREATE TABLE blog_article (
                               CONSTRAINT fk_article_category FOREIGN KEY (category_id) REFERENCES blog_category(id)
 ) COMMENT='农产品商品与乡村故事内容表';
 
+CREATE TABLE message_contents (
+                                  id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '留言ID',
+                                  name VARCHAR(50) NOT NULL COMMENT '留言人姓名',
+                                  phone VARCHAR(30) NOT NULL COMMENT '联系电话',
+                                  content TEXT NOT NULL COMMENT '留言内容',
+                                  source VARCHAR(50) NOT NULL DEFAULT 'wechat_mini_program' COMMENT '来源：wechat_mini_program微信小程序，website网站',
+                                  status TINYINT NOT NULL DEFAULT 0 COMMENT '状态：0未处理，1已处理',
+                                  admin_remark VARCHAR(500) DEFAULT NULL COMMENT '管理员处理备注',
+                                  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                                  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+                                  KEY idx_message_status (status),
+                                  KEY idx_message_created_at (created_at)
+) COMMENT='用户留言表';
+
 -- 管理员和普通管理用户
 INSERT INTO sys_user(username, password_hash, nickname, role, status) VALUES
                                                                           ('admin', '06ed1be3ba0335dd36d285bd4fe12d0b5fbc1ba4faa5f5fba1b190874cdc7bc1', '系统管理员', 'admin', 1),
@@ -148,6 +162,12 @@ WHERE content LIKE '%product-sauce.svg%';
 UPDATE blog_article
 SET content = REPLACE(content, 'product-honey.svg', 'product-honey.jpg')
 WHERE content LIKE '%product-honey.svg%';
+
+
+-- 示例留言数据，管理员登录后台后可以在“留言管理”中看到。
+INSERT INTO message_contents(name, phone, content, source, status, admin_remark) VALUES
+('张三', '13800138000', '你好，我想采购一批土鸡蛋，请问怎么联系农户？', 'wechat_mini_program', 0, NULL),
+('李女士', '13900139000', '我家有本地红薯粉，想发布到网站上，请管理员联系我。', 'wechat_mini_program', 1, '已电话沟通，待补充商品图片。');
 
 SELECT id, title, cover_image
 FROM blog_article

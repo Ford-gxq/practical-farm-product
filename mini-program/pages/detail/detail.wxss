@@ -1,0 +1,32 @@
+.detail-page { min-height: 100vh; padding-bottom: 130rpx; }
+.cover { width: 100%; height: 560rpx; background: #e8efe2; display: block; }
+.detail-card { position: relative; margin: -58rpx 24rpx 0; padding: 34rpx 30rpx; background: #fff; border-radius: 34rpx; box-shadow: 0 18rpx 44rpx rgba(36,82,43,.12); }
+.type-pill { display: inline-flex; height: 46rpx; align-items: center; padding: 0 18rpx; border-radius: 999rpx; background: #edf8ec; color: #2f7d32; font-size: 22rpx; font-weight: 800; }
+.title { margin-top: 20rpx; font-size: 42rpx; line-height: 56rpx; color: #152515; font-weight: 900; }
+.summary { margin-top: 14rpx; color: #6f7969; font-size: 26rpx; line-height: 42rpx; }
+.price-box { margin-top: 26rpx; padding: 22rpx 24rpx; border-radius: 24rpx; background: linear-gradient(135deg, #fff6ee, #fff); display: flex; justify-content: space-between; align-items: center; }
+.big-price { color: #e84a2a; font-size: 42rpx; font-weight: 900; }
+.sale { color: #a36d3d; font-size: 24rpx; }
+.tag-wrap { margin-top: 24rpx; }
+.info-grid { margin-top: 22rpx; display: grid; grid-template-columns: 1fr 1fr; box-shadow: none; background: #f8fbf5; }
+.info-item { padding: 22rpx; border-bottom: 1rpx solid #edf2e8; }
+.info-item:nth-child(odd) { border-right: 1rpx solid #edf2e8; }
+.info-item text { display: block; color: #8a9284; font-size: 22rpx; }
+.info-item strong { display: block; margin-top: 10rpx; color: #253425; font-size: 28rpx; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.content-container { padding-top: 2rpx; }
+.content-card { padding: 30rpx; }
+.paragraph { color: #273527; font-size: 29rpx; line-height: 1.9; margin-bottom: 24rpx; }
+.bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; gap: 18rpx; padding: 18rpx 24rpx calc(18rpx + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); box-shadow: 0 -10rpx 28rpx rgba(36,82,43,.08); }
+.contact-btn, .phone-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  padding: 0;
+  border-radius: 44rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 800;
+  
+  }
+.contact-btn { color: #2f7d32; background: #eef8e9; }
+.phone-btn { color: #fff; background: linear-gradient(135deg, #3fa34d, #247a33); }

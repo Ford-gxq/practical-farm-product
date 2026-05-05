@@ -1,0 +1,104 @@
+page {
+  background: #f6f8ef;
+  color: #1f2a1f;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+}
+view, text, input, textarea, button, image { box-sizing: border-box; }
+.container { padding: 24rpx; }
+.card {
+  background: #fff;
+  border-radius: 28rpx;
+  box-shadow: 0 14rpx 36rpx rgba(36, 82, 43, 0.08);
+  overflow: hidden;
+}
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 34rpx 2rpx 20rpx;
+}
+.section-title { font-size: 38rpx; font-weight: 800; color: #183d20; }
+.section-subtitle { color: #7a856f; font-size: 24rpx; margin-top: 8rpx; }
+.more { color: #2f7d32; font-size: 26rpx; }
+.btn-primary {
+  height: 86rpx;
+  line-height: 86rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #3fa34d, #247a33);
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 700;
+  box-shadow: 0 12rpx 24rpx rgba(47, 125, 50, 0.25);
+}
+.btn-secondary {
+  height: 78rpx;
+  line-height: 78rpx;
+  border-radius: 999rpx;
+  color: #2f7d32;
+  background: #eef8e9;
+  font-size: 28rpx;
+}
+.empty {
+  padding: 80rpx 24rpx;
+  text-align: center;
+  color: #8a9284;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 40rpx;
+  padding: 0 16rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  color: #28773a;
+  background: #edf8ec;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+}
+.price { color: #e84a2a; font-weight: 900; }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+/* 自定义底部导航：替代原生 tabBar，可自由调整字体大小和加粗 */
+.home-page,
+.products-page,
+.stories-page,
+.contact-page {
+  padding-bottom: calc(132rpx + env(safe-area-inset-bottom));
+}
+
+.custom-tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 104rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 -10rpx 28rpx rgba(0, 0, 0, 0.08);
+  z-index: 9999;
+}
+
+.custom-tabbar-item {
+  flex: 1;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #5f675c;
+
+  height: 96rpx;
+  line-height: 96rpx;
+  padding-top: 13rpx;
+  box-sizing: border-box;
+}
+
+.custom-tabbar-item.active {
+  color: #52b3b3;
+  font-size: 32rpx;
+  font-weight: 800;
+}

@@ -1,0 +1,52 @@
+<view class="contact-page safe-bottom">
+  <view class="contact-hero">
+    <view class="contact-badge">MESSAGE</view>
+    <view class="contact-title">联系站长</view>
+    <view class="contact-desc">想发布农产品、咨询采购、投稿乡村故事，都可以在这里留言。管理员会在网站后台查看并处理。</view>
+  </view>
+
+  <view class="container">
+    <!-- <view class="contact-card card notice-card">
+      <view class="card-title">留言会去哪里？</view>
+      <view class="desc-line">· 提交后会保存到后端 MySQL 的 message_contents 表。</view>
+      <view class="desc-line">· 网站管理员登录后台，进入“留言管理”即可查看。</view>
+      <view class="desc-line">· 管理员可以标记已处理，并填写处理备注。</view>
+    </view> -->
+
+    <view class="contact-card card form-card">
+      <view class="card-title">填写留言信息</view>
+      <view class="form-item">
+        <view class="label">姓名</view>
+        <input placeholder="请输入您的姓名" value="{{form.name}}" data-field="name" bindinput="onInput" />
+      </view>
+      <view class="form-item">
+        <view class="label">电话</view>
+        <input placeholder="请输入11位手机号" value="{{form.phone}}" type="number" maxlength="11" data-field="phone" bindinput="onInput" />
+      </view>
+      <view class="form-item textarea-item">
+        <view class="label">留言内容</view>
+        <textarea placeholder="例如：我要发布土鸡蛋商品 / 想采购猕猴桃 / 想投稿乡村故事" value="{{form.content}}" data-field="content" bindinput="onInput"></textarea>
+      </view>
+      <button class="btn-primary submit" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">
+        {{submitting ? '提交中...' : '提交留言'}}
+      </button>
+      <!-- <view class="tips">本地调试时，请先启动 Spring Boot 后端，并在微信开发者工具中勾选“不校验合法域名”。</view> -->
+    </view>
+
+    <view class="contact-card card admin-card">
+      <view class="card-title">管理员查看方式</view>
+      <view class="admin-step">1. 浏览器打开管理后台。</view>
+      <view class="admin-step">2. 使用admin管理员账号登陆账号密码。</view>
+      <view class="admin-step">3. 点击左侧菜单“留言管理”。</view>
+    </view>
+  </view>
+
+
+  <!-- 自定义底部导航：可通过 app.wxss 调整字号、加粗、颜色 -->
+  <view class="custom-tabbar safe-bottom">
+    <view class="custom-tabbar-item" bindtap="goHome">首页</view>
+    <view class="custom-tabbar-item" bindtap="goProducts">源头好物</view>
+    <view class="custom-tabbar-item" bindtap="goStories">乡村故事</view>
+    <view class="custom-tabbar-item active">联系站长</view>
+  </view>
+</view>

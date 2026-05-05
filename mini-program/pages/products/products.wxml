@@ -1,0 +1,55 @@
+<view class="products-page safe-bottom">
+  <view class="top-filter">
+    <view class="search-box">
+      <text class="search-icon">🔍</text>
+      <input value="{{keyword}}" placeholder="搜索农产品、产地、农户" confirm-type="search" bindinput="onKeywordInput" bindconfirm="search" />
+      <text wx:if="{{keyword}}" class="clear" bindtap="clearKeyword">×</text>
+    </view>
+    <scroll-view class="tabs" scroll-x="true" show-scrollbar="false">
+      <view class="tab-list">
+        <view class="tab {{!categoryId && !recommended ? 'active' : ''}}" bindtap="chooseAll">全部</view>
+        <view class="tab {{recommended ? 'active' : ''}}" bindtap="chooseRecommended">时令推荐</view>
+        <view class="tab {{categoryId === item.id ? 'active' : ''}}" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="chooseCategory">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="container list-container">
+    <view class="summary-card card">
+      <view>
+        <view class="summary-title">{{pageTitle}}</view>
+        <view class="summary-desc">本地农户直供，支持电话咨询与批量采购</view>
+      </view>
+      <view class="summary-count">{{total}} 件</view>
+    </view>
+
+    <view class="product-list" wx:if="{{products.length > 0}}">
+      <view class="product-card card" wx:for="{{products}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+        <image class="product-img" src="{{item.coverImage}}" mode="aspectFill"></image>
+        <view class="product-body">
+          <view class="product-title">{{item.title}}</view>
+          <view class="product-summary">{{item.summary || '产地优选，品质可溯源，欢迎电话咨询。'}}</view>
+          <view class="tag-row"><text class="tag" wx:for="{{item.tagsArray}}" wx:for-item="tag" wx:key="*this">{{tag}}</text></view>
+          <view class="bottom-row">
+            <view>
+              <view class="price">{{item.priceText}}</view>
+              <view class="origin">{{item.originText}}</view>
+            </view>
+            <view class="consult">咨询</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="empty card" wx:else>{{loading ? '加载中...' : '暂无农产品，请到后台新增商品'}}</view>
+    <view class="load-more" wx:if="{{products.length > 0}}">{{hasMore ? '上拉加载更多' : '已经到底啦'}}</view>
+  </view>
+
+
+  <!-- 自定义底部导航：可通过 app.wxss 调整字号、加粗、颜色 -->
+  <view class="custom-tabbar safe-bottom">
+    <view class="custom-tabbar-item" bindtap="goHome">首页</view>
+    <view class="custom-tabbar-item active">源头好物</view>
+    <view class="custom-tabbar-item" bindtap="goStories">乡村故事</view>
+    <view class="custom-tabbar-item" bindtap="goContact">联系站长</view>
+  </view>
+</view>

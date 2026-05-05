@@ -6,6 +6,7 @@
       <router-link to="/admin/articles">内容管理</router-link>
       <router-link to="/admin/images">封面图片</router-link>
       <router-link to="/admin/categories">商品分类</router-link>
+      <router-link to="/admin/messages">留言管理</router-link>
       <router-link to="/">返回网站</router-link>
       <a class="logout-link" href="javascript:void(0)" @click="logout">退出登录</a>
     </aside>

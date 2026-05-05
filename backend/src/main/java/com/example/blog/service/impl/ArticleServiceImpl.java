@@ -7,6 +7,7 @@ import com.example.blog.entity.Article;
 import com.example.blog.exception.BusinessException;
 import com.example.blog.mapper.ArticleMapper;
 import com.example.blog.mapper.CategoryMapper;
+import com.example.blog.mapper.MessageContentMapper;
 import com.example.blog.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import java.util.Map;
 public class ArticleServiceImpl implements ArticleService {
     private final ArticleMapper articleMapper;
     private final CategoryMapper categoryMapper;
+    private final MessageContentMapper messageContentMapper;
 
     @Override
     public PageResult<Article> page(ArticleQueryRequest query) {
@@ -89,6 +91,8 @@ public class ArticleServiceImpl implements ArticleService {
         map.put("articleCount", articleMapper.countAll());
         map.put("publishedCount", articleMapper.countPublished());
         map.put("categoryCount", categoryMapper.selectAll().size());
+        map.put("messageCount", messageContentMapper.countAll());
+        map.put("unhandledMessageCount", messageContentMapper.countUnhandled());
         return map;
     }
 }

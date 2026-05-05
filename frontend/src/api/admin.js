@@ -294,3 +294,34 @@ export const deleteImage = (name, type = 'cover') => request.delete('/admin/imag
     type
   }
 })
+/**
+ * 分页查询用户留言列表
+ *
+ * 请求地址：GET /api/admin/messages
+ *
+ * @param {Object} params 查询参数
+ * @param {number} params.pageNo 当前页码
+ * @param {number} params.pageSize 每页条数
+ * @param {number|null} params.status 处理状态：0未处理，1已处理
+ * @param {string} params.keyword 搜索关键词：姓名、电话、留言内容
+ */
+export const getAdminMessages = params => request.get('/admin/messages', { params })
+
+/**
+ * 修改留言处理状态和管理员备注
+ *
+ * 请求地址：PUT /api/admin/messages/{id}/status
+ *
+ * @param {number} id 留言ID
+ * @param {Object} data 处理信息
+ * @param {number} data.status 状态：0未处理，1已处理
+ * @param {string} data.adminRemark 管理员备注
+ */
+export const updateMessageStatus = (id, data) => request.put(`/admin/messages/${id}/status`, data)
+
+/**
+ * 删除留言
+ *
+ * 请求地址：DELETE /api/admin/messages/{id}
+ */
+export const deleteMessage = id => request.delete(`/admin/messages/${id}`)

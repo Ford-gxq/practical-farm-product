@@ -11,6 +11,7 @@ import AdminDashboard from '../views/admin/AdminDashboard.vue'
 import AdminArticles from '../views/admin/AdminArticles.vue'
 import AdminCategories from '../views/admin/AdminCategories.vue'
 import AdminImages from '../views/admin/AdminImages.vue'
+import AdminMessages from '../views/admin/AdminMessages.vue'
 
 /**
  * Vue Router 路由配置。
@@ -25,6 +26,7 @@ import AdminImages from '../views/admin/AdminImages.vue'
  *   /admin/articles    内容管理
  *   /admin/categories  商品分类
  *   /admin/images      封面图片管理
+ *   /admin/messages    留言管理
  */
 const routes = [
   { path: '/', component: SiteHome },
@@ -38,7 +40,8 @@ const routes = [
       { path: 'dashboard', component: AdminDashboard },
       { path: 'articles', component: AdminArticles },
       { path: 'categories', component: AdminCategories },
-      { path: 'images', component: AdminImages }
+      { path: 'images', component: AdminImages },
+      { path: 'messages', component: AdminMessages }
     ]
   }
 ]

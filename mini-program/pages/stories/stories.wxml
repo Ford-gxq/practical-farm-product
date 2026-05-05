@@ -1,0 +1,32 @@
+<view class="stories-page safe-bottom">
+  <view class="story-hero">
+    <view class="story-title-main">乡村故事</view>
+    <view class="story-desc-main">记录农户、土地、手作与四季收成</view>
+  </view>
+  <view class="container">
+    <view class="story-list" wx:if="{{stories.length > 0}}">
+      <view class="story-card card" wx:for="{{stories}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+        <image class="story-img" src="{{item.coverImage}}" mode="aspectFill"></image>
+        <view class="story-body">
+          <view class="story-title">{{item.title}}</view>
+          <view class="story-summary">{{item.summary || '这里有土地的味道，也有农人的故事。'}}</view>
+          <view class="story-meta">
+            <text>{{item.originText}}</text>
+            <text>浏览 {{item.viewCount || 0}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="empty card" wx:else>{{loading ? '加载中...' : '暂无乡村故事，请到后台发布文章'}}</view>
+    <view class="load-more" wx:if="{{stories.length > 0}}">{{hasMore ? '上拉加载更多' : '已经到底啦'}}</view>
+  </view>
+
+
+  <!-- 自定义底部导航：可通过 app.wxss 调整字号、加粗、颜色 -->
+  <view class="custom-tabbar safe-bottom">
+    <view class="custom-tabbar-item" bindtap="goHome">首页</view>
+    <view class="custom-tabbar-item" bindtap="goProducts">源头好物</view>
+    <view class="custom-tabbar-item active">乡村故事</view>
+    <view class="custom-tabbar-item" bindtap="goContact">联系站长</view>
+  </view>
+</view>
